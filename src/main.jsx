@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
-import Protect from './auth/Protect.jsx'
-import Home from './components/Home.jsx'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './index.css'
 import { UserAuthContextProvider } from './context/UserAuthContext.jsx'
+import AuthContextProvider from './context/AuthContext.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -27,17 +26,15 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />
-  },
-  {
-    path: "/home",
-    element: <Home />
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthContextProvider>
     <UserAuthContextProvider>
       <RouterProvider router={router} />
     </UserAuthContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>,
 )

@@ -9,7 +9,6 @@ import { useUserAuth } from "./context/UserAuthContext";
 import { Button } from "react-bootstrap";
 
 function App() {
-  
   const [profile, setProfile] = useState(null);
 
   const clientId =
@@ -104,7 +103,6 @@ function App() {
           </div>
         </>
       )}
-
     </div>
   );
 }
